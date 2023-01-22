@@ -1,0 +1,62 @@
+<head>
+    <title>Avoge QuickBuy</title>
+    <link href = "https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto+Slab|Roboto:300,400,500,700" rel = "stylesheet" />
+    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="icon" type="image/x-icon" href="assets/just_dog.png">
+</head>
+
+<body>
+
+    <img src="assets/just_dog.png" style="position: absolute; top: 10px; left: calc(50% - 120px); width:100px;"></img> 
+    <img src="assets/text.png" style="position: absolute; top: 35px; left: calc(50% - 15px); width:100px;"></img> 
+    <h3 style="font-size: 1.7em; position: absolute; top: 30px; left: calc(50% - 15px);"><i>QuickBuy </i> </h3>
+
+    <div id="main_border">
+        <div id="main_fill">
+
+            <!-- 'From' Panel -->
+            <div id="from_rect" class="buyRect top">
+
+                <h3 id="from_text">From</h3>
+
+                <div class="coinRect" id="avaxRect">
+                    <img id="avaxIcon" class="avaxIcon" src="assets/avax_circle.png">
+                    <h3 class="tokenText">AVAX</h3>
+                </div>
+
+                <div class="disabledRect" id="usdcRect">
+                    <img id="usdcIcon" class="tokenIcon bw" src="assets/usdc.png">
+                    <h3 class="tokenText">USDC</h3>
+                </div>
+
+                <div class="disabledRect" id="usdceRect">
+                    <img id="usdceIcon" class="tokenIcon bw" src="assets/usdc.png">
+                    <h3 class="tokenText">USDC.e</h3>
+                </div>
+
+                <input placeholder="0.0" class="numberInput" id="fromInput" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 46'/>
+            </div>
+
+            <img id="swapTriangle" src="assets/arrow.png"/>
+            
+            <!-- 'To' Panel -->
+            <div id="to_rect" class="buyRect bottom">
+                
+                <h3 id="to_text">Insert CA</h3> <!-- oninput -->
+                <input placeholder="0x" class="numberInput" id="caInput"  oninput=onAddressTyped() onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || ( ( event.charCode == 120 || (event.charCode >= 65 && event.charCode < 71)) || (event.charCode >= 97 && event.charCode < 103)) '/>
+            </div>
+
+            <!-- Swap Button -->
+            <button id="swapButton" class="buyRect swap">
+                <h3 class="swapText" id="swapButtonText">Connect</h3>
+            </button>
+
+            <h4 id="errorMessage"></h4>
+            
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+    <script src="dapp.js"></script>
+</body>
